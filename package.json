@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:x-cold/rollup-ts-library-boilerplate.git"
+    "url": "git@github.com:x-cold/jira-rest-sdk.git"
   },
   "scripts": {
     "prepare": "rm -rf .husky/_ && husky install",

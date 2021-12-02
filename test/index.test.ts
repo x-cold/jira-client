@@ -14,7 +14,9 @@ describe('Dummy test', () => {
 
   it('Version3Client instance', () => {
     const client = new Version3Client({
-      baseUrl: 'https://your-domain.atlassian.net',
+      baseURL: 'https://your-domain.atlassian.net',
+      securityWorker: () => ({
+      }),
     });
     expect(client).toBeInstanceOf(Object);
   });

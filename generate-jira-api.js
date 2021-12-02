@@ -14,7 +14,7 @@ generateApi({
   // Search it: */example/config/url*
   // Replace to: example/config/url*
   input: path.resolve(process.cwd(), './swagger.json'),
-  httpClientType: 'fetch',
+  httpClientType: 'axios',
   modular: true,
   prettier: {
     printWidth: 120,

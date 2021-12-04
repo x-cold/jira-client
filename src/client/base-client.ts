@@ -19,8 +19,8 @@ export interface Config {
   authentication?: Authentication.Types;
 }
 
-export default class BaseClient implements Client {
-  private instance: AxiosInstance;
+export class BaseClient implements Client {
+  instance: AxiosInstance;
 
   constructor(protected readonly config: Config) {
     this.instance = axios.create({
@@ -36,21 +36,25 @@ export default class BaseClient implements Client {
     });
   }
 
+  async wrapRequestConfig(requestConfig: RequestConfig): Promise<RequestConfig> {
+    const modifiedRequestConfig = {
+      ...requestConfig,
+      headers: removeUndefinedProperties({
+        Authorization: await AuthenticationService
+          .getAuthenticationToken(this.config.authentication, {
+            baseURL: this.config.baseURL,
+            url: this.instance.getUri(requestConfig),
+            method: requestConfig.method!,
+          }),
+        ...requestConfig.headers,
+      }),
+    };
+    return modifiedRequestConfig;
+  }
+
   async request<T>(requestConfig: RequestConfig): Promise<T> {
     try {
-      const modifiedRequestConfig = {
-        ...requestConfig,
-        headers: removeUndefinedProperties({
-          Authorization: await AuthenticationService
-            .getAuthenticationToken(this.config.authentication, {
-              baseURL: this.config.baseURL,
-              url: this.instance.getUri(requestConfig),
-              method: requestConfig.method!,
-            }),
-          ...requestConfig.headers,
-        }),
-      };
-
+      const modifiedRequestConfig = await this.wrapRequestConfig(requestConfig);
       const response = await this.instance.request<T>(modifiedRequestConfig);
       return response.data;
     } catch (e: unknown) {

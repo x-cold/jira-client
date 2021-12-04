@@ -1,6 +1,8 @@
-import { AxiosError, AxiosRequestConfig } from 'axios';
+import { AxiosError, AxiosRequestConfig, ResponseType } from 'axios';
 
 export type Error = AxiosError;
+
+export type RequestConfig = AxiosRequestConfig;
 
 export type QueryParamsType = Record<string | number, any>;
 
@@ -10,7 +12,7 @@ export enum ContentType {
   UrlEncoded = 'application/x-www-form-urlencoded',
 }
 
-export interface RequestConfig extends Omit<AxiosRequestConfig, 'data' | 'params' | 'url' | 'responseType'> {
+export interface FullRequestParams extends Omit<RequestConfig, 'data' | 'params' | 'url' | 'responseType'> {
   /** set parameter to `true` for call `securityWorker` for this request */
   secure?: boolean;
   /** request path */

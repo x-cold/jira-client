@@ -1,6 +1,20 @@
 jira-rest-sdk
 ---
 
+[![NPM version][npm-image]][npm-url]
+[![build status][gitflow-image]][gitflow-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![npm download][download-image]][download-url]
+
+[npm-image]: https://img.shields.io/npm/v/jira-rest-sdk.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/jira-rest-sdk
+[gitflow-image]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml/badge.svg?branch=master
+[gitflow-url]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml
+[codecov-image]: https://codecov.io/gh/x-cold/jira-rest-sdk/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/x-cold/jira-rest-sdk
+[download-image]: https://badgen.net/npm/dt/jira-rest-sdk
+[download-url]: https://npmjs.org/package/jira-rest-sdk
+
 Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger. 
 
 ### Features

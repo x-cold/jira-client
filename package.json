@@ -46,6 +46,7 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@rollup/plugin-babel": "^5.3.0",
+    "@types/express": "^4.17.13",
     "@types/jest": "^27.0.3",
     "@types/oauth": "^0.9.1",
     "@typescript-eslint/eslint-plugin": "^4.29.3",

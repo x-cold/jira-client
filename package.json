@@ -1,6 +1,6 @@
 {
   "name": "jira-rest-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger.",
   "main": "dist/index.umd.js",
   "module": "dist/index.es5.js",
@@ -20,7 +20,6 @@
     "docs": "typedoc --out docs --theme minimal src",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.js",
-    "postbuild": "npm run docs",
     "release": "npm run release:patch",
     "release:patch": "npm run build && standard-version",
     "release:minor": "npm run build && standard-version --release-as minor",
@@ -79,5 +78,8 @@
     "atlassian-jwt": "^2.0.2",
     "axios": "^0.24.0",
     "oauth": "^0.9.15"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -2712,27 +2712,7 @@ img {
 			<a href="#jira-rest-sdk" id="jira-rest-sdk" style="color: inherit; text-decoration: none;">
 				<h2>jira-rest-sdk</h2>
 			</a>
-			<p>Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger.</p>
-			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-				<h3>Usage</h3>
-			</a>
-			<ul>
-				<li>Install the package</li>
-			</ul>
-			<pre><code class="language-bash"><span style="color: #000000">npm i -S jira-rest-sdk</span>
-</code></pre>
-			<ul>
-				<li>Init client instance and call the method</li>
-			</ul>
-			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
-
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
-</code></pre>
-			<ul>
-				<li>API documents: <a href="https://x-cold.github.io/jira-rest-sdk/">https://x-cold.github.io/jira-rest-sdk/</a></li>
-			</ul>
+			<p>Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger. </p>
 			<a href="#features" id="features" style="color: inherit; text-decoration: none;">
 				<h3>Features</h3>
 			</a>
@@ -2741,11 +2721,156 @@ img {
 				<li>TypeScript development friendly</li>
 				<li>Generate by jira official swagger.json</li>
 			</ul>
+			<a href="#api-documents" id="api-documents" style="color: inherit; text-decoration: none;">
+				<h3>API documents</h3>
+			</a>
+			<p><a href="https://x-cold.github.io/jira-rest-sdk/">https://x-cold.github.io/jira-rest-sdk/</a></p>
+			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+				<h3>Usage</h3>
+			</a>
+			<a href="#install-the-package" id="install-the-package" style="color: inherit; text-decoration: none;">
+				<h4>Install the package</h4>
+			</a>
+			<pre><code class="language-bash"><span style="color: #000000">npm i -S jira-rest-sdk</span>
+</code></pre>
+			<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
+				<h4>Authentication</h4>
+			</a>
+			<blockquote>
+				<p>This module is inspired by <a href="https://github.com/MrRefactoring/jira.js">jira.js</a></p>
+			</blockquote>
+			<p>There are several types of authentication to gain access to the Jira API. Let&#39;s take a look at a few of them below</p>
+			<a href="#basic-authentication" id="basic-authentication" style="color: inherit; text-decoration: none;">
+				<h5><a href="https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/">Basic authentication</a></h5>
+			</a>
+			<p>Basic authentication allows you to log in with credentials. You can use username and password, but this login method is not supported in the online version and most standalone versions, so it&#39;s better to release API Token, read how to do it <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/">here</a>, and use it together with email.</p>
+			<p>Username and password example:</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_USERNAME&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_PASSWORD&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+</code></pre>
+			<p>Email and API Token example:</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR@EMAIL.ORG&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">apiToken:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_API_TOKEN&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+</code></pre>
+			<a href="#oauth" id="oauth" style="color: inherit; text-decoration: none;">
+				<h5><a href="https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/">OAuth</a></h5>
+			</a>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">oauth:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">consumerKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;your consumer key&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">consumerSecret:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;-----BEGIN RSA PRIVATE KEY-----</span><span style="color: #EE0000">\n</span><span style="color: #A31515">&quot; + &quot;some private key</span><span style="color: #EE0000">\n</span><span style="color: #A31515">&quot; + &quot;-----END RSA PRIVATE KEY-----&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">accessToken:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;your access token&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">tokenSecret:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;your token secret&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+</code></pre>
+			<a href="#oauth-20" id="oauth-20" style="color: inherit; text-decoration: none;">
+				<h5><a href="https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/">OAuth 2.0</a></h5>
+			</a>
+			<p>Only the authorization token is currently supported. To release it, you need to read the <a href="https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/">documentation</a> and write your own code to get the token.</p>
+			<p>Example of usage</p>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">oauth2:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">accessToken:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_ACCESS_TOKEN&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+</code></pre>
+			<a href="#jwt" id="jwt" style="color: inherit; text-decoration: none;">
+				<h5><a href="https://developer.atlassian.com/cloud/jira/platform/understanding-jwt-for-connect-apps/">JWT</a></h5>
+			</a>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">jwt:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">issuer:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ISSUER&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">secret:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;shhhh&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">expiryTimeSeconds:</span><span style="color: #000000"> </span><span style="color: #098658">180</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+</code></pre>
+			<a href="#your-first-request-and-using-algorithm" id="your-first-request-and-using-algorithm" style="color: inherit; text-decoration: none;">
+				<h4>Your first request and using algorithm</h4>
+			</a>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_EMAIL&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">apiToken:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_API_TOKEN&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">() {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">projects</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getAllProjects</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">projects</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #795E26">main</span><span style="color: #000000">();</span>
+
+<span style="color: #008000">// Expected output:</span>
+<span style="color: #008000">// [</span>
+<span style="color: #008000">//   {</span>
+<span style="color: #008000">//     expand: &#039;description,lead,issueTypes,url,projectKeys,permissions,insight&#039;,</span>
+<span style="color: #008000">//     self: &#039;https://your-domain.atlassian.net/rest/api/2/project/10000&#039;,</span>
+<span style="color: #008000">//     id: &#039;10000&#039;,</span>
+<span style="color: #008000">//     key: &#039;TEST&#039;,</span>
+<span style="color: #008000">//     name: &#039;test&#039;,</span>
+<span style="color: #008000">//     avatarUrls: {</span>
+<span style="color: #008000">//       &#039;48x48&#039;: &#039;https://your-domain.atlassian.net/secure/projectavatar?pid=10000&amp;avatarId=10425&#039;,</span>
+<span style="color: #008000">//       &#039;24x24&#039;: &#039;https://your-domain.atlassian.net/secure/projectavatar?size=small&amp;s=small&amp;pid=10000&amp;avatarId=10425&#039;,</span>
+<span style="color: #008000">//       &#039;16x16&#039;: &#039;https://your-domain.atlassian.net/secure/projectavatar?size=xsmall&amp;s=xsmall&amp;pid=10000&amp;avatarId=10425&#039;,</span>
+<span style="color: #008000">//       &#039;32x32&#039;: &#039;https://your-domain.atlassian.net/secure/projectavatar?size=medium&amp;s=medium&amp;pid=10000&amp;avatarId=10425&#039;</span>
+<span style="color: #008000">//     },</span>
+<span style="color: #008000">//     projectTypeKey: &#039;software&#039;,</span>
+<span style="color: #008000">//     simplified: true,</span>
+<span style="color: #008000">//     style: &#039;next-gen&#039;,</span>
+<span style="color: #008000">//     isPrivate: false,</span>
+<span style="color: #008000">//     properties: {},</span>
+<span style="color: #008000">//     entityId: &#039;e0a412bd-1510-4841-bdbc-84180db3ee3b&#039;,</span>
+<span style="color: #008000">//     uuid: &#039;e0a412bd-1510-4841-bdbc-84180db3ee3b&#039;</span>
+<span style="color: #008000">//   }</span>
+<span style="color: #008000">// ]</span>
+</code></pre>
 			<a href="#development" id="development" style="color: inherit; text-decoration: none;">
-				<h2>Development</h2>
+				<h3>Development</h3>
 			</a>
 			<a href="#npm-scripts" id="npm-scripts" style="color: inherit; text-decoration: none;">
-				<h3>NPM scripts</h3>
+				<h4>NPM scripts</h4>
 			</a>
 			<ul>
 				<li><code>npm lint</code>: Eslint code</li>
@@ -2763,7 +2888,7 @@ img {
 				<li><code>npm run generate-jira-api</code>: Generate v3 open api</li>
 			</ul>
 			<a href="#cookbook" id="cookbook" style="color: inherit; text-decoration: none;">
-				<h3>Cookbook</h3>
+				<h4>Cookbook</h4>
 			</a>
 			<ul>
 				<li>Local development</li>

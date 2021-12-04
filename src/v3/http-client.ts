@@ -12,7 +12,13 @@
 import { BaseClient } from '../client';
 import { FullRequestParams, ContentType } from '../interfaces';
 
-export class HttpClient extends BaseClient {
+export {
+  ContentType
+};
+
+export type RequestParams = Omit<FullRequestParams, 'body' | 'method' | 'query' | 'path'>;
+
+export class HttpClient<SecurityDataType = unknown> extends BaseClient {
   private createFormData(input: Record<string, unknown>): FormData {
     return Object.keys(input || {}).reduce((formData, key) => {
       const property = input[key];
@@ -28,7 +34,7 @@ export class HttpClient extends BaseClient {
     }, new FormData());
   }
 
-  public request = async <T>({
+  public request = async <T, E>({
     path,
     type,
     query,

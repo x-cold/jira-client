@@ -23,15 +23,16 @@ export class BaseClient implements Client {
   instance: AxiosInstance;
 
   constructor(protected readonly config: Config) {
+    const { baseRequestConfig = {} } = config;
     this.instance = axios.create({
+      ...baseRequestConfig,
       paramsSerializer: paramSerializer.bind(this),
-      ...config.baseRequestConfig,
       baseURL: config.baseURL,
       headers: removeUndefinedProperties({
         [STRICT_GDPR_FLAG]: config.strictGDPR,
         [ATLASSIAN_TOKEN_CHECK_FLAG]: config.noCheckAtlassianToken
           ? ATLASSIAN_TOKEN_CHECK_NOCHECK_VALUE : undefined,
-        ...config.baseRequestConfig?.headers,
+        ...(baseRequestConfig?.headers || {}),
       }),
     });
   }

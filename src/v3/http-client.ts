@@ -40,6 +40,7 @@ export class HttpClient<SecurityDataType = unknown> extends BaseClient {
     query,
     format,
     body,
+    method,
     ...params
   }: FullRequestParams): Promise<T> => {
     const responseFormat = format || void 0;
@@ -54,8 +55,10 @@ export class HttpClient<SecurityDataType = unknown> extends BaseClient {
       params: query,
       data: body,
       url: path,
+      method,
       responseType: responseFormat,
     });
-    return this.instance.request(modifiedRequestConfig);
+    const response = await this.instance.request<T>(modifiedRequestConfig);
+    return response.data;
   };
 }

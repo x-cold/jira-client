@@ -5,5 +5,5 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js'],
   transform: { '^.+\\.ts?$': 'ts-jest' },
   testPathIgnorePatterns: ['dist/'],
-  globals: { 'ts-jest': { diagnostics: false }},
+  globals: { 'ts-jest': { diagnostics: false }}
 };

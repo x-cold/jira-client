@@ -2713,7 +2713,7 @@ img {
 				<h2>jira-rest-sdk</h2>
 			</a>
 			<p><a href="https://npmjs.org/package/jira-rest-sdk"><img src="https://img.shields.io/npm/v/jira-rest-sdk.svg?style=flat-square" alt="NPM version"></a>
-				<a href="https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml"><img src="https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml/badge.svg?branch=master" alt="build status"></a>
+				<a href="https://github.com/x-cold/jira-rest-sdk/actions/workflows/test.yml"><img src="https://github.com/x-cold/jira-rest-sdk/actions/workflows/test.yml/badge.svg?branch=master" alt="build status"></a>
 				<a href="https://codecov.io/gh/x-cold/jira-rest-sdk"><img src="https://codecov.io/gh/x-cold/jira-rest-sdk/branch/master/graph/badge.svg" alt="Test coverage"></a>
 			<a href="https://npmjs.org/package/jira-rest-sdk"><img src="https://badgen.net/npm/dt/jira-rest-sdk" alt="npm download"></a></p>
 			<p>Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger. </p>
@@ -2752,7 +2752,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_USERNAME&#039;</span><span style="color: #000000">,</span>
@@ -2765,7 +2765,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR@EMAIL.ORG&#039;</span><span style="color: #000000">,</span>
@@ -2780,7 +2780,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">oauth:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">consumerKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;your consumer key&#039;</span><span style="color: #000000">,</span>
@@ -2799,7 +2799,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">oauth2:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">accessToken:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_ACCESS_TOKEN&#039;</span><span style="color: #000000">,</span>
@@ -2813,7 +2813,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">jwt:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">issuer:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ISSUER&#039;</span><span style="color: #000000">,</span>
@@ -2829,7 +2829,7 @@ img {
 			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Version3Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;jira-rest-sdk&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Version3Client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">baseURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://your-domain.atlassian.net&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">authentication:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">    </span><span style="color: #001080">basic:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;YOUR_EMAIL&#039;</span><span style="color: #000000">,</span>

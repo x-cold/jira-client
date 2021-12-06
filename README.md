@@ -8,8 +8,8 @@ jira-rest-sdk
 
 [npm-image]: https://img.shields.io/npm/v/jira-rest-sdk.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/jira-rest-sdk
-[gitflow-image]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml/badge.svg?branch=master
-[gitflow-url]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/nodejs.yml
+[gitflow-image]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/test.yml/badge.svg?branch=master
+[gitflow-url]: https://github.com/x-cold/jira-rest-sdk/actions/workflows/test.yml
 [codecov-image]: https://codecov.io/gh/x-cold/jira-rest-sdk/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/x-cold/jira-rest-sdk
 [download-image]: https://badgen.net/npm/dt/jira-rest-sdk
@@ -50,7 +50,7 @@ Username and password example:
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     basic: {
       username: 'YOUR_USERNAME',
@@ -66,7 +66,7 @@ Email and API Token example:
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     basic: {
       email: 'YOUR@EMAIL.ORG',
@@ -82,7 +82,7 @@ const client = new Version3Client({
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     oauth: {
       consumerKey: 'your consumer key',
@@ -104,7 +104,7 @@ Example of usage
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     oauth2: {
       accessToken: 'YOUR_ACCESS_TOKEN',
@@ -119,7 +119,7 @@ const client = new Version3Client({
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     jwt: {
       issuer: 'ISSUER',
@@ -136,7 +136,7 @@ const client = new Version3Client({
 import { Version3Client } from 'jira-rest-sdk';
 
 const client = new Version3Client({
-  host: 'https://your-domain.atlassian.net',
+  baseURL: 'https://your-domain.atlassian.net',
   authentication: {
     basic: {
       email: 'YOUR_EMAIL',
@@ -177,7 +177,6 @@ main();
 //   }
 // ]
 ```
-
 
 ### Development
 

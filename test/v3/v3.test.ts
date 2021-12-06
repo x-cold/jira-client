@@ -41,4 +41,58 @@ describe('V3 test', () => {
       expect(e).toBeInstanceOf(Error);
     }
   });
+
+  it('should use api token to auth', () => {
+    const myClient = new Version3Client({
+      baseURL: 'https://your-domain.atlassian.net',
+      authentication: {
+        basic: {
+          email: 'YOUR@EMAIL.ORG',
+          apiToken: 'YOUR_API_TOKEN',
+        },
+      },
+    });
+    expect(myClient).toBeInstanceOf(Version3Client);
+  });
+
+  it('should use oauth to auth', () => {
+    const myClient = new Version3Client({
+      baseURL: 'https://your-domain.atlassian.net',
+      authentication: {
+        oauth: {
+          consumerKey: 'your consumer key',
+          consumerSecret: '-----BEGIN RSA PRIVATE KEY-----\n" + "some private key\n" + "-----END RSA PRIVATE KEY-----',
+          accessToken: 'your access token',
+          tokenSecret: 'your token secret',
+        },
+      },
+    });
+    expect(myClient).toBeInstanceOf(Version3Client);
+  });
+
+  it('should use oauth2 to auth', () => {
+    const myClient = new Version3Client({
+      baseURL: 'https://your-domain.atlassian.net',
+      authentication: {
+        oauth2: {
+          accessToken: 'YOUR_ACCESS_TOKEN',
+        },
+      },
+    });
+    expect(myClient).toBeInstanceOf(Version3Client);
+  });
+
+  it('should use jwt to auth', () => {
+    const myClient = new Version3Client({
+      baseURL: 'https://your-domain.atlassian.net',
+      authentication: {
+        jwt: {
+          issuer: 'ISSUER',
+          secret: 'shhhh',
+          expiryTimeSeconds: 180,
+        },
+      },
+    });
+    expect(myClient).toBeInstanceOf(Version3Client);
+  });
 });

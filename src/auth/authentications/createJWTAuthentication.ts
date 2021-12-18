@@ -29,3 +29,5 @@ export function createJWTAuthentication(
 
   return `JWT ${token}`;
 }
+
+export default createJWTAuthentication;

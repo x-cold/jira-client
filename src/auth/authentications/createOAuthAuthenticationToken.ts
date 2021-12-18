@@ -30,3 +30,5 @@ export function createOAuthAuthenticationToken(
     method,
   );
 }
+
+export default createOAuthAuthenticationToken;

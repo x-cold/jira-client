@@ -18,3 +18,5 @@ export function createBasicAuthenticationToken(authenticationData: Authenticatio
 
   return `Basic ${token}`;
 }
+
+export default createBasicAuthenticationToken;

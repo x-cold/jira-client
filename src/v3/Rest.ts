@@ -9,6 +9,7 @@
  * ---------------------------------------------------------------
  */
 
+import { ContentType, HttpClient, RequestParams } from '../client/swagger-client';
 import {
   ActorInputBean,
   ActorsMap,
@@ -267,7 +268,6 @@ import {
   Worklog,
   WorklogIdsRequestBean,
 } from './data-contracts';
-import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class Rest<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
   /**

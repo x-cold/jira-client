@@ -27,6 +27,10 @@ Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger.
 
 https://x-cold.github.io/jira-rest-sdk/
 
+
+**NOTICE: Node.js is supported by default (jwt authentication depends on Node.js module named crypto).**
+If you want to work in the browser, just customize with exported pure client (which doesn't support authentication and takes up less storage space) and override request method.
+
 ### Usage
 #### Install the package
 
@@ -176,6 +180,31 @@ main();
 //     uuid: 'e0a412bd-1510-4841-bdbc-84180db3ee3b'
 //   }
 // ]
+```
+
+#### Customize pure client to support working in a browser
+
+```ts
+import { Version3Client, FullRequestParams } from 'jira-rest-sdk/dist/pure';
+
+class MyVersion3Client extends Version3Client {
+  public request = async <T>(params: FullRequestParams): Promise<T> => {
+    const res = {
+      ...params,
+    }; // TODO: implement request logic
+    return res as any;
+  };
+}
+
+const client = new MyVersion3Client();
+
+async function main() {
+  const projects = await client.getAllProjects();
+
+  console.log(projects);
+}
+
+main();
 ```
 
 ### Development

@@ -20,7 +20,8 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-     "jsx": "react-jsx"
+    "paths": {},
+    "jsx": "react-jsx"
   },
   "include": [
     "src",

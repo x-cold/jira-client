@@ -1,5 +1,7 @@
-import { Rest } from './v3/Rest';
+import NodeJsVersion3Client from './v3/NodeRest';
 
-export const Version3Client = Rest;
+export * as V3Types from './v3/data-contracts';
 
-export default Rest;
+export const Version3Client = NodeJsVersion3Client;
+
+export default NodeJsVersion3Client;

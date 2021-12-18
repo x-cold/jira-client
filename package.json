@@ -19,7 +19,7 @@
     "start": "rollup -c rollup.config.js -w",
     "docs": "typedoc --out docs --theme minimal src",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js",
     "release": "npm run release:patch",
     "release:patch": "npm run build && standard-version",
     "release:minor": "npm run build && standard-version --release-as minor",

@@ -1,3 +1,5 @@
+export * from './swagger';
+
 export function encode(value: string) {
   return encodeURIComponent(value)
     .replace(/%3A/gi, ':')

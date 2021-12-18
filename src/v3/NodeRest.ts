@@ -1,8 +1,13 @@
 import axios, { AxiosInstance } from 'axios';
-import { Authentication, RequestConfig } from '../interfaces';
-import type { Client } from './client';
+import {
+  Authentication,
+  RequestConfig,
+  FullRequestParams,
+  ContentType,
+} from '../interfaces';
 import { AuthenticationService } from '../auth/authenticationService';
-import { paramSerializer, removeUndefinedProperties } from '../util';
+import { paramSerializer, removeUndefinedProperties, createFormData } from '../utils';
+import { Rest } from './Rest';
 
 const STRICT_GDPR_FLAG = 'x-atlassian-force-account-id';
 const ATLASSIAN_TOKEN_CHECK_FLAG = 'X-Atlassian-Token';
@@ -19,10 +24,11 @@ export interface Config {
   authentication?: Authentication.Types;
 }
 
-export class BaseClient implements Client {
+class NodeJsVersion3Client extends Rest {
   instance: AxiosInstance;
 
   constructor(protected readonly config: Config) {
+    super();
     const { baseRequestConfig = {} } = config;
     this.instance = axios.create({
       ...baseRequestConfig,
@@ -53,14 +59,46 @@ export class BaseClient implements Client {
     return modifiedRequestConfig;
   }
 
-  async request<T>(requestConfig: RequestConfig): Promise<T> {
-    try {
-      const modifiedRequestConfig = await this.wrapRequestConfig(requestConfig);
-      const response = await this.instance.request<T>(modifiedRequestConfig);
-      return response.data;
-    } catch (e: unknown) {
-      console.error('Jira rest sdk request error', e);
-      throw e;
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  public request = async <T, E>({
+    path,
+    type,
+    query,
+    format,
+    body,
+    method,
+    ...params
+  }: FullRequestParams): Promise<T> => {
+    const responseFormat = format || undefined;
+    let newBody = body;
+    if (type === ContentType.FormData && body && body !== null && typeof body === 'object') {
+      newBody = createFormData(body as Record<string, unknown>);
     }
-  }
+    const modifiedRequestConfig = await this.wrapRequestConfig({
+      headers: {
+        ...(type && type !== ContentType.FormData ? { 'Content-Type': type } : {}),
+        ...(params.headers || {}),
+      },
+      params: query,
+      data: newBody,
+      url: path,
+      method,
+      responseType: responseFormat,
+    });
+    const response = await this.instance.request<T>(modifiedRequestConfig);
+    return response.data;
+  };
+  // async request<T>(requestConfig: RequestConfig): Promise<T> {
+  //   /* istanbul ignore */
+  //   try {
+  //     const modifiedRequestConfig = await this.wrapRequestConfig(requestConfig);
+  //     const response = await this.instance.request<T>(modifiedRequestConfig);
+  //     return response.data;
+  //   } catch (e: unknown) {
+  //     console.error('Jira rest sdk request error', e);
+  //     throw e;
+  //   }
+  // }
 }
+
+export default NodeJsVersion3Client;

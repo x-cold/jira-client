@@ -1,4 +1,6 @@
-import { Version3Client } from '../src';
+import { Version3Client, V3Types as JiraTypes } from '../src';
+
+const obj: JiraTypes.IssueTypeSchemeUpdateDetails = {};
 
 /**
  * Dummy test
@@ -6,6 +8,7 @@ import { Version3Client } from '../src';
 describe('Dummy test', () => {
   it('Version3Client is instantiable', () => {
     expect(Version3Client).toBeInstanceOf(Object);
+    expect(obj).toBeInstanceOf(Object);
   });
 
   it('Version3Client instance', () => {

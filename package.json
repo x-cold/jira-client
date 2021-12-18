@@ -1,10 +1,10 @@
 {
   "name": "jira-rest-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Another JavaScript/TypeScript wrapper for the JIRA REST API via swagger.",
   "main": "dist/index.js",
   "module": "dist/index.es5.js",
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
